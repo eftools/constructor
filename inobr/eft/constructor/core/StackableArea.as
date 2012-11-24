@@ -152,12 +152,12 @@ package inobr.eft.constructor.core
 		{
 			if (direction == "left")
 			{
-				if (mousePosition.x > (conflictObject.x + conflictObject.width) -(dObject.width + _margin))
+				if (mousePosition.x > (conflictObject.x + conflictObject.width) -(dObject.width + _marginHorizontal))
 					return true;
 			}
 			else
 			{
-				if (mousePosition.x < conflictObject.x + dObject.width + _margin)
+				if (mousePosition.x < conflictObject.x + dObject.width + _marginHorizontal)
 					return true;
 			}
 			
@@ -228,33 +228,33 @@ package inobr.eft.constructor.core
 		
 		private function calculatePositions(order:Array):Array
 		{
-			var positions:Array = [new Point(_margin, _margin)];
-			var nextRowY:int = positions[0].y + order[0].height + _margin;
+			var positions:Array = [new Point(_marginHorizontal, _marginVertical)];
+			var nextRowY:int = positions[0].y + order[0].height + _marginVertical;
 			
 			for (var i:int = 1; i < order.length; i++) 
 			{
 				var current:Object = order[i];
 				var prev:Object = order[i - 1];
-				var newX:int = positions[i - 1].x + prev.width + _margin;
-				if (newX + current.width + _margin <= areaWidth)
+				var newX:int = positions[i - 1].x + prev.width + _marginHorizontal;
+				if (newX + current.width + _marginHorizontal <= areaWidth)
 				{
 					var newY:int = positions[i - 1].y;
-					if (newY + current.height + _margin > areaHeight)
+					if (newY + current.height + _marginVertical > areaHeight)
 						throw new Error('Not enough space in Area for all drag objects!');
 						
 					positions.push(new Point(newX, newY));
 					
-					if (nextRowY < positions[i].y + current.height + _margin)
-						nextRowY = positions[i].y + current.height + _margin;
+					if (nextRowY < positions[i].y + current.height + _marginVertical)
+						nextRowY = positions[i].y + current.height + _marginVertical;
 				}
 				else
 				{
-					if (nextRowY + current.height + _margin <= areaHeight)
+					if (nextRowY + current.height + _marginVertical <= areaHeight)
 					{
-						newX = _margin;
+						newX = _marginHorizontal;
 						newY = nextRowY;
 						positions.push(new Point(newX, newY));
-						nextRowY = nextRowY + current.height + _margin;
+						nextRowY = nextRowY + current.height + _marginVertical;
 					}
 					else
 						throw new Error('Not enough space in Area for all drag objects!');

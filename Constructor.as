@@ -32,6 +32,8 @@ package
 			homeArea.rightOrder = [dragObject_1, dragObject_3, dragObject_2];
 			
 			var dropArea_1:Area = new StackableArea(10, 180, 430, 90);
+			dropArea_1.marginHorizontal = 20;
+			dropArea_1.marginVertical = 10;
 			dropArea_1.rightOrder = [dragObject_4, dragObject_5];
 			dropArea_1.isSequenceImportant = true;
 			

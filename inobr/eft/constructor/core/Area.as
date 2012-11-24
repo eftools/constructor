@@ -18,7 +18,8 @@ package inobr.eft.constructor.core
 		protected var _rightOrder:Array = [];
 		protected var _currentOrder:Array = [];
 		protected var initialOrder:Array = [];
-		protected var _margin:uint = 5;
+		protected var _marginHorizontal:uint = 5;
+		protected var _marginVertical:uint = 5;
 		protected var _isSequenceImportant:Boolean = false;
 		
 		public function Area()
@@ -113,19 +114,29 @@ package inobr.eft.constructor.core
 			_rightOrder = value;
 		}
 		
-		public function get margin():uint 
-		{
-			return _margin;
-		}
-		
-		public function set margin(value:uint):void 
-		{
-			_margin = value;
-		}
-		
 		public function set isSequenceImportant(value:Boolean):void 
 		{
 			_isSequenceImportant = value;
+		}
+		
+		public function get marginHorizontal():uint 
+		{
+			return _marginHorizontal;
+		}
+		
+		public function set marginHorizontal(value:uint):void 
+		{
+			_marginHorizontal = value;
+		}
+		
+		public function get marginVertical():uint 
+		{
+			return _marginVertical;
+		}
+		
+		public function set marginVertical(value:uint):void 
+		{
+			_marginVertical = value;
 		}
 	}
 
