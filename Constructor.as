@@ -2,6 +2,7 @@ package
 {
 	import flash.display.Sprite;
 	import flash.text.TextField;
+	import inobr.eft.common.ui.BlockFormat;
 	import inobr.eft.constructor.core.DragObject;
 	import inobr.eft.constructor.core.Area;
 	import inobr.eft.constructor.core.Initializer;
@@ -13,7 +14,7 @@ package
 	/**
 	 * @author Peter Gerasimenko, gpstmp@gmail.com
 	 */
-	[SWF(width = "600", height = "460", frameRate = "40", backgroundColor = "#FFFFFF")]
+	[SWF(width = "600", height = "460", frameRate = "40", backgroundColor = "#729FDC")]
 	public class Constructor extends Initializer
 	{
 		override protected function initialize():void
@@ -30,6 +31,7 @@ package
 			var homeArea:Area = new StackableArea(10, 10, 580, 160);
 			homeArea.setInitialDragObjects(dragObject_1, dragObject_3, dragObject_2, dragObject_4, dragObject_5, dragObject_6);
 			homeArea.rightOrder = [dragObject_1, dragObject_3, dragObject_2];
+			(homeArea as StackableArea).format = new BlockFormat( { blockFill: null } );
 			
 			var dropArea_1:Area = new StackableArea(10, 180, 430, 90);
 			dropArea_1.marginHorizontal = 20;

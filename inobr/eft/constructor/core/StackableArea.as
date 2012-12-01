@@ -141,10 +141,10 @@ package inobr.eft.constructor.core
 		private function drawBack():Shape
 		{
 			var back:Shape = new Shape();
-			back.graphics.beginFill(_format.blockFill);
+			if(_format.blockFill) back.graphics.beginFill(_format.blockFill);
 			back.graphics.lineStyle(_format.borderWidth, _format.borderColor);
 			back.graphics.drawRect(0, 0, areaWidth, areaHeight);
-			back.graphics.endFill();
+			if(_format.blockFill) back.graphics.endFill();
 			return back;
 		}
 		
